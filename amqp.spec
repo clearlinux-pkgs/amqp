@@ -4,7 +4,7 @@
 #
 Name     : amqp
 Version  : 1.4.6
-Release  : 18
+Release  : 19
 URL      : https://pypi.python.org/packages/source/a/amqp/amqp-1.4.6.tar.gz
 Source0  : https://pypi.python.org/packages/source/a/amqp/amqp-1.4.6.tar.gz
 Summary  : Low-level AMQP client for Python (fork of amqplib)
