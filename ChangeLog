@@ -5,11 +5,125 @@ py-amqp is fork of amqplib used by Kombu containing additional features and impr
 The previous amqplib changelog is here:
 http://code.google.com/p/py-amqplib/source/browse/CHANGES
 
+.. _version-2.0.2:
+
+2.0.2
+=====
+:release-date: 2016-06-10 5:40 PM PDT
+:release-by: Ask Solem
+
+- Python 3: Installation requirements ended up being a generator
+  and crashed setup.py.
+
+    Fix contributed by ChangBo Guo(gcb).
+
+- Python <= 2.7.7: struct.pack arguments cannot be unicode
+
+    Fix contributed by Alan Justino and Xin Li.
+
+- Python 3.4: Fixed use of `bytes % int`.
+
+    Fix contributed by Alan Justino.
+
+- Connection/Transport: Fixed handling of default port.
+
+    Fix contributed by Quentin Pradet.
+
+.. _version-2.0.1:
+
+2.0.1
+=====
+:release-date: 2016-05-31 6:20 PM PDT
+:release-by: Ask Solem
+
+- Adds backward compatibility layer for the 1.4 API.
+
+    Using the connection without calling ``.connect()`` first will now work,
+    but a warning is emitted and the behavior is deprecated and will be
+    removed in version 2.2.
+
+- Fixes kombu 3.0/celery 3.1 compatibility (Issue #88).
+
+    Fix contributed by Bas ten Berge.
+
+- Fixed compatibility with Python 2.7.3 (Issue #85)
+
+    Fix contributed by Bas ten Berge.
+
+- Fixed bug where calling drain_events() with a timeout of 0 would actually
+  block until a frame is received.
+
+- Documentation moved to http://amqp.readthedocs.io (Issue #89).
+
+    See https://blog.readthedocs.com/securing-subdomains/ for the reasoning
+    behind this change.
+
+    Fix contributed by Adam Chainz.
+
+.. _version-2.0.0:
+
+2.0.0
+=====
+:release-date: 2016-05-26 1:44 PM PDT
+:release-by: Ask Solem
+
+- No longer supports Python 2.6
+
+- You must now call Connection.connect() to establish the connection.
+
+    The Connection constructor no longer has side effects, so you have
+    to explicitly call connect first.
+
+- Library rewritten to anticipate async changes.
+
+- Connection now exposes underlying socket options.
+
+    This change allows to set arbitrary TCP socket options during the creation of
+    the transport.
+
+    Those values can be set passing a dictionray where the key is the name of
+    the parameter we want to set.
+    The names of the keys are the ones reported above.
+
+    Contributed by Andrea Rosa, Dallas Marlow and Rongze Zhu.
+
+- Additional logging for heartbeats.
+
+    Contributed by Davanum Srinivas, and Dmitry Mescheryakov.
+
+- SSL: Fixes issue with remote connection hanging
+
+    Fix contributed by Adrien Guinet.
+
+- SSL: ``ssl`` dict argument now supports the ``check_hostname`` key
+    (Issue #63).
+
+    Contributed by Vic Kumar.
+
+- Contributions by:
+
+    Adrien Guinet
+    Andrea Rosa
+    Artyom Koval
+    Corey Farwell
+    Craig Jellick
+    Dallas Marlow
+    Davanum Srinivas
+    Federico Ficarelli
+    Jared Lewis
+    Rémy Greinhofer
+    Rongze Zhu
+    Yury Selivanov
+    Vic Kumar
+    Vladimir Bolshakov
+    :github_user:`lezeroq`
+
 .. _version-1.4.9:
 
 1.4.9
 =====
 :release-date: 2016-01-08 5:50 PM PST
+:release-by: Ask Solem
 
 - Fixes compatibility with Linux/OS X instances where the ``ctypes`` module
   does not exist.

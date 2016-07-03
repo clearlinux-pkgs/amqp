@@ -1,5 +1,5 @@
 PKG_NAME := amqp
-URL := https://pypi.python.org/packages/source/a/amqp/amqp-1.4.9.tar.gz
+URL := http://pypi.debian.net/amqp/amqp-2.0.2.tar.gz
 ARCHIVES :=
 
 include ../common/Makefile.common
