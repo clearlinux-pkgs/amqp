@@ -9,3 +9,4 @@ traceback2
 six
 linecache2
 amqp
+vine
