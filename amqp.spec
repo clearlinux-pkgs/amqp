@@ -4,7 +4,7 @@
 #
 Name     : amqp
 Version  : 1.4.9
-Release  : 30
+Release  : 31
 URL      : http://pypi.debian.net/amqp/amqp-1.4.9.tar.gz
 Source0  : http://pypi.debian.net/amqp/amqp-1.4.9.tar.gz
 Summary  : Low-level AMQP client for Python (fork of amqplib)
@@ -44,6 +44,7 @@ python components for the amqp package.
 
 %build
 export LANG=C
+export SOURCE_DATE_EPOCH=1484528971
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
@@ -53,9 +54,10 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 py.test-2.7 -v funtests/ || :
 %install
+export SOURCE_DATE_EPOCH=1484528971
 rm -rf %{buildroot}
-python2 -tt setup.py build -b py2 install --root=%{buildroot}
-python3 -tt setup.py build -b py3 install --root=%{buildroot}
+python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
+python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
 
 %files
 %defattr(-,root,root,-)
