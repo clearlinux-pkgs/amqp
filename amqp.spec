@@ -4,7 +4,7 @@
 #
 Name     : amqp
 Version  : 1.4.9
-Release  : 31
+Release  : 32
 URL      : http://pypi.debian.net/amqp/amqp-1.4.9.tar.gz
 Source0  : http://pypi.debian.net/amqp/amqp-1.4.9.tar.gz
 Summary  : Low-level AMQP client for Python (fork of amqplib)
