@@ -4,7 +4,7 @@
 #
 Name     : amqp
 Version  : 2.2.1
-Release  : 35
+Release  : 36
 URL      : http://pypi.debian.net/amqp/amqp-2.2.1.tar.gz
 Source0  : http://pypi.debian.net/amqp/amqp-2.2.1.tar.gz
 Summary  : Low-level AMQP client for Python (fork of amqplib).
