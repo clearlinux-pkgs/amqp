@@ -4,22 +4,24 @@
 #
 Name     : amqp
 Version  : 2.2.1
-Release  : 36
+Release  : 37
 URL      : http://pypi.debian.net/amqp/amqp-2.2.1.tar.gz
 Source0  : http://pypi.debian.net/amqp/amqp-2.2.1.tar.gz
 Summary  : Low-level AMQP client for Python (fork of amqplib).
 Group    : Development/Tools
 License  : BSD-3-Clause-Clear
+Requires: amqp-python3
+Requires: amqp-license
 Requires: amqp-python
 Requires: vine
 BuildRequires : amqp
+BuildRequires : buildreq-distutils3
 BuildRequires : coverage
 BuildRequires : linecache2
 BuildRequires : nose
 BuildRequires : nose-cover3
 BuildRequires : pbr
 BuildRequires : pip
-BuildRequires : python-dev
 BuildRequires : python-mock
 BuildRequires : python3-dev
 BuildRequires : setuptools
@@ -34,12 +36,30 @@ Python AMQP 0.9.1 client library
         
         |build-status| |coverage| |license| |wheel| |pyversion| |pyimp|
 
+%package license
+Summary: license components for the amqp package.
+Group: Default
+
+%description license
+license components for the amqp package.
+
+
 %package python
 Summary: python components for the amqp package.
 Group: Default
+Requires: amqp-python3
 
 %description python
 python components for the amqp package.
+
+
+%package python3
+Summary: python3 components for the amqp package.
+Group: Default
+Requires: python3-core
+
+%description python3
+python3 components for the amqp package.
 
 
 %prep
@@ -50,8 +70,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1500022664
-python2 setup.py build -b py2
+export SOURCE_DATE_EPOCH=1532208327
 python3 setup.py build -b py3
 
 %check
@@ -60,10 +79,10 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 py.test-2.7 -v funtests/ || :
 %install
-export SOURCE_DATE_EPOCH=1500022664
 rm -rf %{buildroot}
-python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
-python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+mkdir -p %{buildroot}/usr/share/doc/amqp
+cp LICENSE %{buildroot}/usr/share/doc/amqp/LICENSE
+python3 -tt setup.py build -b py3 install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
@@ -71,7 +90,13 @@ echo ----[ mark ]----
 %files
 %defattr(-,root,root,-)
 
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/amqp/LICENSE
+
 %files python
 %defattr(-,root,root,-)
-/usr/lib/python2*/*
+
+%files python3
+%defattr(-,root,root,-)
 /usr/lib/python3*/*
