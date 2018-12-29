@@ -6,7 +6,7 @@
 #
 Name     : amqp
 Version  : 2.3.2
-Release  : 43
+Release  : 44
 URL      : http://pypi.debian.net/amqp/amqp-2.3.2.tar.gz
 Source0  : http://pypi.debian.net/amqp/amqp-2.3.2.tar.gz
 Source99 : http://pypi.debian.net/amqp/amqp-2.3.2.tar.gz.asc
