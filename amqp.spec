@@ -4,7 +4,7 @@
 #
 Name     : amqp
 Version  : 2.6.0
-Release  : 56
+Release  : 57
 URL      : https://files.pythonhosted.org/packages/21/2e/3f06f2e063c6548a399f1eb221d9d128de1f29c4ee7a4a9bb0e0d33f3ca8/amqp-2.6.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/21/2e/3f06f2e063c6548a399f1eb221d9d128de1f29c4ee7a4a9bb0e0d33f3ca8/amqp-2.6.0.tar.gz
 Summary  : Low-level AMQP client for Python (fork of amqplib).
