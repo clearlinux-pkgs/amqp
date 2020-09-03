@@ -1,5 +1,5 @@
 PKG_NAME := amqp
-URL = https://files.pythonhosted.org/packages/37/9f/d54494a157d0dcd1673fe7a1bcce7ac70d3eb6d5d6149749450c87a2c959/amqp-2.6.1.tar.gz
+URL = https://files.pythonhosted.org/packages/cd/b4/1a0fcc6316f884aa448169923a222fb02b068a33317e6f6d39e552a4eeea/amqp-5.0.0.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
